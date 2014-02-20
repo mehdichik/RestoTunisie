@@ -18,7 +18,7 @@ import resto.entities.Client;
  */
 public class ClientDAO {
 
-    public void insertStock(Client cl) {
+    public void insertClient(Client cl) {
         // DepotDAO depdao=new DepotDAO();
 
         String requete = "insert into stock (Nom,Prenom,Username,Password,Email) values (?,?,?,?,?)";
@@ -37,7 +37,7 @@ public class ClientDAO {
         }
     }
 
-    public void updateStock(Client cl) {
+    public void updateClient(Client cl) {
         String requete = "update Client set Nom=?, Prenom=?, Username=?, Password=?, Email=? ";
         try {
             PreparedStatement ps = MyConnection.getInstance().prepareStatement(requete);
@@ -55,7 +55,7 @@ public class ClientDAO {
 
     }
 
-    public void deleteStock(int num) {
+    public void deleteClient(int num) {
 
         String requete = "delete from stock where numero_client=?";
         try {
@@ -69,7 +69,7 @@ public class ClientDAO {
         }
     }
 
-    public Client findStockByNum(int num) {
+    public Client findClientByNum(int num) {
 
         String requete = "select * from stock where numero_client=?";
 

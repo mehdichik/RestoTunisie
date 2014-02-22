@@ -14,7 +14,7 @@ import java.sql.SQLException;
  */
 class MyConnection {
     private static final  String driver = "com.mysql.jdbc.Driver";
-   private static final  String url = "jdbc:mysql://localhost:8889/Client";
+   private static final  String url = "jdbc:mysql://localhost:8889/RestoTunisie";
    private static final  String login = "root";
    private static final  String pwd = "root";
    private static Connection con;

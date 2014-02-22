@@ -4,6 +4,9 @@
  */
 package resto.frame;
 
+import javax.swing.JOptionPane;
+import resto.dao.ClientDAO;
+
 /**
  *
  * @author malek
@@ -26,33 +29,80 @@ public class Frame_AddClient extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
+        jMenuItem3 = new javax.swing.JMenuItem();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
+        Supprimer = new javax.swing.JButton();
+        Annuler = new javax.swing.JButton();
+
+        jMenuItem1.setText("jMenuItem1");
+
+        jMenuItem2.setText("jMenuItem2");
+
+        jMenuItem3.setText("jMenuItem3");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jTable2.setModel(new MyTableModel());
         jScrollPane2.setViewportView(jTable2);
 
+        Supprimer.setText("Supprimer");
+        Supprimer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SupprimerActionPerformed(evt);
+            }
+        });
+
+        Annuler.setText("Annuler");
+        Annuler.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AnnulerActionPerformed(evt);
+            }
+        });
+
         org.jdesktop.layout.GroupLayout layout = new org.jdesktop.layout.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(layout.createSequentialGroup()
+            .add(org.jdesktop.layout.GroupLayout.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .add(jScrollPane2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 375, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .add(147, 147, 147))
+                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING)
+                    .add(layout.createSequentialGroup()
+                        .add(Annuler)
+                        .add(18, 18, 18)
+                        .add(Supprimer))
+                    .add(jScrollPane2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 481, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                .add(41, 41, 41))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(layout.createSequentialGroup()
-                .addContainerGap()
+            .add(org.jdesktop.layout.GroupLayout.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(58, Short.MAX_VALUE)
                 .add(jScrollPane2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 275, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(19, Short.MAX_VALUE))
+                .add(11, 11, 11)
+                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
+                    .add(Supprimer)
+                    .add(Annuler)))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void SupprimerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SupprimerActionPerformed
+        // TODO add your handling code here:
+        ClientDAO client_dao=new ClientDAO();
+//        MyTableModel.removeRow(MyTableModel.getSelectedRow()); 
+    }//GEN-LAST:event_SupprimerActionPerformed
+
+    private void AnnulerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AnnulerActionPerformed
+        // TODO add your handling code here:
+        int reponse =
+  JOptionPane.showConfirmDialog(this,"Voulez-vous vraiment quitter ?","Quitter l'application",JOptionPane.YES_NO_OPTION);
+if (reponse == JOptionPane.YES_OPTION) {
+    System.exit(0);}
+    }//GEN-LAST:event_AnnulerActionPerformed
 
     /**
      * @param args the command line arguments
@@ -85,11 +135,17 @@ public class Frame_AddClient extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             @Override
             public void run() {
+                
                 new Frame_AddClient().setVisible(true);
             }
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Annuler;
+    private javax.swing.JButton Supprimer;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable2;
     // End of variables declaration//GEN-END:variables

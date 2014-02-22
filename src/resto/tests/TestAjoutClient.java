@@ -16,7 +16,12 @@ public class TestAjoutClient {
 //        Depot depot = new Depot();
         Client client = new Client();
         ClientDAO clientDAO = new ClientDAO();
-        client.setNom("Mehdi");
+        client.setNumero_client(2);
+        client.setNom("Ibn Cheikh");
+        client.setPrenom("Mehdi");
+        client.setUsername("mehdichik");
+        client.setPassword("mehdi");
+        client.setEmail("mehdichik@gmail.com");
         clientDAO.insertClient(client);
 //        DepotDAO depotDAO = new DepotDAO();
 //        depot.setAdresse_depot("La Soukra");

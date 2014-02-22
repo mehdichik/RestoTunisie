@@ -19,10 +19,10 @@ import resto.entities.Client;
 public class ClientDAO {
 
     public void insertClient(Client cl) {
-        // DepotDAO depdao=new DepotDAO();
+       
 
-        String requete = "insert into stock (Nom,Prenom,Username,Password,Email) values (?,?,?,?,?)";
-        try { //dep=depdao.findDepotById(st.getDepot().getId_dep());
+        String requete = "insert into client (Nom,Prenom,Username,Password,Email) values (?,?,?,?,?)";
+        try { 
             PreparedStatement ps = MyConnection.getInstance().prepareStatement(requete);
             ps.setString(1, cl.getNom());
             ps.setString(2, cl.getPrenom());
@@ -57,7 +57,7 @@ public class ClientDAO {
 
     public void deleteClient(int num) {
 
-        String requete = "delete from stock where numero_client=?";
+        String requete = "delete from client where numero_client=?";
         try {
             PreparedStatement ps = MyConnection.getInstance().prepareStatement(requete);
             ps.setInt(1, num);
@@ -71,12 +71,11 @@ public class ClientDAO {
 
     public Client findClientByNum(int num) {
 
-        String requete = "select * from stock where numero_client=?";
+        String requete = "select * from client where numero_client=?";
 
         try {
             PreparedStatement ps = MyConnection.getInstance().prepareStatement(requete);
             ResultSet resultat = ps.executeQuery();
-//        DepotDAO depotDAO = new DepotDAO();
             Client client = new Client();
             while (resultat.next()) {
 
@@ -86,9 +85,6 @@ public class ClientDAO {
                 client.setUsername(resultat.getString(4));
                 client.setPassword(resultat.getString(5));
                 client.setEmail(resultat.getString(6));
-//            stock.setType_vet_stock(resultat.getString(2));
-//            stock.setNombre_articles(resultat.getInt(3));
-//            stock.setDepot(depotDAO.findDepotById(resultat.getInt(4)));
             }
             return client;
         } catch (SQLException ex) {
@@ -102,23 +98,21 @@ public class ClientDAO {
 
         List<Client> listeClient = new ArrayList<Client>();
 
-        String requete = "select * from Client";
+        String requete = "select * from client";
         try {
-            Statement statement = MyConnection.getInstance()
-                    .createStatement();
+            Statement statement = MyConnection.getInstance().createStatement();
+
             ResultSet resultat = statement.executeQuery(requete);
-//            DepotDAO depotDAO = new DepotDAO();
             while (resultat.next()) {
                 Client client = new Client();
-//                stock.setNumero_stock(resultat.getInt(1));
-                client.setNom(resultat.getString(1));
-                client.setPrenom(resultat.getString(2));
-                client.setUsername(resultat.getString(3));
-                client.setPassword(resultat.getString(4));
-                client.setEmail(resultat.getString(5));
-//                stock.setType_vet_stock(resultat.getString(2));
-//                stock.setNombre_articles(resultat.getInt(3));
-//                stock.setDepot(depotDAO.findDepotById(resultat.getInt(4)));
+
+                client.setNumero_client(resultat.getInt(1));
+                client.setNom(resultat.getString(2));
+                client.setPrenom(resultat.getString(3));
+                client.setUsername(resultat.getString(4));
+                client.setPassword(resultat.getString(5));
+                client.setEmail(resultat.getString(6));
+
 
                 listeClient.add(client);
             }
